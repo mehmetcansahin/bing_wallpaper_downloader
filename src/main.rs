@@ -25,8 +25,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let re = Regex::new(r"th\?id=OHR\.(?P<name>[^_]+)_").unwrap();
         let caps = re.captures(image_url).unwrap();
         let file_name = format!("{}.jpg", &caps["name"]);
-        let file_path = download_dir.join(file_name);
-        download_image(image_url, &file_path)?;
+        let file_path = download_dir.join(&file_name);
+        if !file_path.exists() {
+            download_image(image_url, &file_path)?;
+        } else {
+            println!("File {} already exists, skipping download.", file_name);
+        }
     }
 
     println!("Images downloaded successfully!");
