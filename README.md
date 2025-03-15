@@ -25,7 +25,7 @@ A Rust-based application to download Bing's daily wallpapers.
 
 ## Usage
 
-Run the application:
+Run the application with default settings (saves to "bing_wallpapers" folder):
 
 ```sh
 ./target/release/bing_wallpaper_downloader
@@ -35,6 +35,12 @@ Specify a custom directory to save wallpapers:
 
 ```sh
 ./target/release/bing_wallpaper_downloader --dir /path/to/directory
+```
+
+Or use the short option:
+
+```sh
+./target/release/bing_wallpaper_downloader -d /path/to/directory
 ```
 
 ## Contributing
